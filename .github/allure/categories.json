@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Known application defects (see docs/bug-reports.md)",
+    "matchedStatuses": ["skipped"],
+    "messageRegex": ".*BUG-\\d+.*"
+  },
+  {
+    "name": "Product defects",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Test infrastructure problems",
+    "matchedStatuses": ["broken"]
+  }
+]

@@ -1,0 +1,27 @@
+[project]
+name = "swag-labs-playwright-pytest"
+version = "1.0.0"
+description = "UI test automation for the Swag Labs demo shop: Python, Playwright, Pytest, Allure"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+base_url = "https://www.saucedemo.com"
+addopts = "-ra --strict-markers --tracing=retain-on-failure --screenshot=only-on-failure"
+filterwarnings = [
+    # Emitted by the pytest-base-url plugin, not by this project.
+    "ignore:Session-scoped fixtures defined as instance methods:DeprecationWarning",
+    "ignore::pytest.PytestRemovedIn10Warning",
+]
+markers = [
+    "smoke: critical-path checks, run first",
+    "known_defect: documents a known application bug (see docs/bug-reports.md)",
+]
+
+[tool.ruff]
+line-length = 130
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
